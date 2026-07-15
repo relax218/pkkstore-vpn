@@ -99,21 +99,6 @@ jobs:
           echo "KEY_PASS=pkkstore123" >> $GITHUB_ENV
         fi
 
-    - name: Decode Keystore (if secret provided)
-      if: ${{ secrets.APP_KEYSTORE_BASE64 != '' }}
-      uses: timheuer/base64-to-file@v2.0.0
-      id: android_keystore
-      with:
-        fileName: "pkkstore_keystore.jks"
-        encodedString: ${{ secrets.APP_KEYSTORE_BASE64 }}
-
-    - name: Set Keystore from Secret
-      if: ${{ secrets.APP_KEYSTORE_BASE64 != '' }}
-      run: |
-        echo "KEYSTORE_PATH=${{ steps.android_keystore.outputs.filePath }}" >> $GITHUB_ENV
-        echo "KEYSTORE_PASS=${{ secrets.APP_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
-        echo "KEY_ALIAS=${{ secrets.APP_KEYSTORE_ALIAS }}" >> $GITHUB_ENV
-        echo "KEY_PASS=${{ secrets.APP_KEY_PASSWORD }}" >> $GITHUB_ENV
 
     - name: Build PKKStore VPN APK
       run: |
