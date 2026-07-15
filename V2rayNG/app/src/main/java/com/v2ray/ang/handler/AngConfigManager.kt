@@ -639,7 +639,17 @@ object AngConfigManager {
         }
         val uri = URI(Utils.fixIllegalUrl(url))
         val subItem = SubscriptionItem()
-        subItem.remarks = uri.fragment ?: "import sub"
+        // Use URL fragment if present, otherwise extract the first subdomain part as a friendly name
+        // e.g. "https://pkk1.kiwihub.top:8000/sub/xxx" -> "Pkk1"
+        // e.g. "https://vpn.kiwihub.top:8000/sub/xxx" -> "Vpn"
+        val autoName = if (uri.fragment != null) {
+            uri.fragment
+        } else {
+            val host = uri.host ?: ""
+            val firstPart = host.split(".").firstOrNull() ?: host
+            firstPart.replaceFirstChar { it.uppercase() }
+        }
+        subItem.remarks = autoName.ifBlank { "Server" }
         subItem.url = url
         MmkvManager.encodeSubscription("", subItem)
         return 1
