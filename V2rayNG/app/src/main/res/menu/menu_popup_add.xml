@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/import_qrcode"
+        android:title="@string/menu_item_import_config_qrcode" />
+    <item
+        android:id="@+id/import_clipboard"
+        android:title="@string/menu_item_import_config_clipboard" />
+    <item
+        android:id="@+id/import_local"
+        android:title="@string/menu_item_import_config_local" />
+    <item
+        android:id="@+id/import_manually_policy_group"
+        android:title="@string/menu_item_import_config_policy_group" />
+    <item
+        android:id="@+id/import_manually_proxy_chain"
+        android:title="@string/menu_item_import_config_proxy_chain" />
+    <item
+        android:id="@+id/import_manually_vmess"
+        android:title="@string/menu_item_import_config_manually_vmess" />
+    <item
+        android:id="@+id/import_manually_vless"
+        android:title="@string/menu_item_import_config_manually_vless" />
+    <item
+        android:id="@+id/import_manually_ss"
+        android:title="@string/menu_item_import_config_manually_ss" />
+    <item
+        android:id="@+id/import_manually_socks"
+        android:title="@string/menu_item_import_config_manually_socks" />
+    <item
+        android:id="@+id/import_manually_http"
+        android:title="@string/menu_item_import_config_manually_http" />
+    <item
+        android:id="@+id/import_manually_trojan"
+        android:title="@string/menu_item_import_config_manually_trojan" />
+    <item
+        android:id="@+id/import_manually_wireguard"
+        android:title="@string/menu_item_import_config_manually_wireguard" />
+    <item
+        android:id="@+id/import_manually_hysteria2"
+        android:title="@string/menu_item_import_config_manually_hysteria2" />
+</menu>
